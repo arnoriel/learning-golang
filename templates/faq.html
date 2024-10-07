@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage FAQs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Manage FAQs</h1>
+
+        <!-- Button to Open Add FAQ Modal -->
+        <div class="text-end mb-3">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addFAQModal">Add New FAQ</button>
+        </div>
+
+        <!-- Existing FAQs -->
+        <h2>Existing FAQs</h2>
+        <div class="list-group">
+            {{ range . }}
+            <div class="list-group-item">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <strong>{{ .ID }}. {{ .Question }}</strong>
+                        <p>{{ .Answer }}</p>
+                    </div>
+                    <div>
+                        <!-- Edit FAQ Button -->
+                        <!-- <button class="btn btn-sm btn-warning me-2" data-bs-toggle="modal" data-bs-target="#editFAQModal{{ .ID }}">Edit</button> -->
+                        <!-- Delete FAQ Button -->
+                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteFAQModal{{ .ID }}">Delete</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Edit FAQ Modal -->
+            <!-- <div class="modal fade" id="editFAQModal{{ .ID }}" tabindex="-1" aria-labelledby="editFAQModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="editFAQModalLabel">Edit FAQ</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="POST" action="/faq/edit">
+                                <input type="hidden" name="id" value="{{ .ID }}">
+                                <div class="mb-3">
+                                    <label for="question" class="form-label">Question</label>
+                                    <input type="text" class="form-control" name="question" value="{{ .Question }}" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="answer" class="form-label">Answer</label>
+                                    <textarea class="form-control" name="answer" rows="3" required>{{ .Answer }}</textarea>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Delete Confirmation Modal -->
+            <div class="modal fade" id="deleteFAQModal{{ .ID }}" tabindex="-1" aria-labelledby="deleteFAQModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteFAQModalLabel">Delete FAQ</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete FAQ: <strong>{{ .Question }}</strong>?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <form method="POST" action="/faq/delete">
+                                <input type="hidden" name="id" value="{{ .ID }}">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ else }}
+            <p>No FAQs available.</p>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Add FAQ Modal -->
+    <div class="modal fade" id="addFAQModal" tabindex="-1" aria-labelledby="addFAQModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addFAQModalLabel">Add New FAQ</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="/faq/add">
+                        <div class="mb-3">
+                            <label for="question" class="form-label">Question</label>
+                            <input type="text" class="form-control" name="question" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="answer" class="form-label">Answer</label>
+                            <textarea class="form-control" name="answer" rows="3" required></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Add FAQ</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

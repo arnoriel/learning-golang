@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "question": "Apa itu Go?",
+    "answer": "Go adalah bahasa pemrograman yang dikembangkan oleh Google."
+  },
+  {
+    "id": 2,
+    "question": "Apa kegunaan Go?",
+    "answer": "Go berguna untuk membangun aplikasi server, API, dan cloud."
+  },
+  {
+    "id": 3,
+    "question": "bagaimana cara aksesnya?",
+    "answer": "ketik saja localhost:8080 anjay"
+  }
+]
