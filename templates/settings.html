@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Application Settings</h1>
+    <form action="/settings/update" method="POST">
+        <label for="app_name">Application Name:</label>
+        <input type="text" id="app_name" name="app_name" value="{{.AppName}}" required><br><br>
+
+        <label for="about">About:</label>
+        <textarea id="about" name="about" required>{{.About}}</textarea><br><br>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>{{.Description}}</textarea><br><br>
+
+        <button type="submit">Save Settings</button>
+    </form>
+</body>
+
+</html>

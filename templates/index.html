@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Website</title>
+    <title>{{ .Settings.AppName }}</title> <!-- Mengambil AppName dari settings.json -->
     <link rel="stylesheet" href="/static/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
 
     <!-- Header -->
     <header id="header">
-        <h1 class="logo">Our Website</h1>
+        <h1 class="logo">{{ .Settings.AppName }}</h1> <!-- Mengambil AppName dari settings.json -->
         <nav>
             <a href="#">Home</a>
             <a href="#about">About</a>
@@ -27,16 +27,16 @@
     <!-- Hero Section -->
     <section class="hero section">
         <div>
-            <h2>Welcome to Our Website</h2>
-            <p>Explore our services and get to know our amazing team.</p>
+            <h2>Welcome to {{ .Settings.AppName }}</h2> <!-- Mengambil AppName dari settings.json -->
+            <p>{{ .Settings.Description }}</p> <!-- Mengambil Description dari settings.json -->
             <a href="#about" class="btn">Learn More</a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about section" id="about">
+     <!-- About Section -->
+     <section class="about section" id="about">
         <h2>About Us</h2>
-        <p>We are a dynamic team of professionals dedicated to providing top-notch services...</p>
+        <p>{{ .Settings.About }}</p> <!-- Mengambil About dari settings.json -->
     </section>
 
     <!-- Service Section -->
@@ -44,12 +44,12 @@
         <h2>Our Services</h2>
         <div class="services-grid">
             <div class="service-item">
-                <h3>Web Development</h3>
-                <p>We build modern web applications tailored to your business needs.</p>
+                <h3>Web Development Trainings</h3>
+                <p>Arrival for learning about Web Development and Become a Developer!</p>
             </div>
             <div class="service-item">
-                <h3>Mobile Apps</h3>
-                <p>Developing cross-platform mobile apps to reach your customers anywhere.</p>
+                <h3>Mobile Apps Training</h3>
+                <p>Learn to develope a cross-platform mobile apps to reach it everywhere.</p>
             </div>
             <div class="service-item">
                 <h3>Consulting</h3>
@@ -122,11 +122,11 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
-    <section class="faq-section section" id="faq">
+     <!-- FAQ Section -->
+     <section class="faq-section section" id="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq">
-            {{ range . }}
+            {{ range .FAQs }}
             <div class="faq-item">
                 <strong>{{ .ID }}. {{ .Question }}</strong>
                 <p>{{ .Answer }}</p>
@@ -136,7 +136,6 @@
             {{ end }}
         </div>
     </section>
-
     <!-- Contact Us -->
     <section class="contact" id="contact">
         <h2>Get In Touch with Us</h2>
@@ -175,9 +174,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Our Website. All rights reserved.</p>
+        <p>&copy; 2024 {{ .Settings.AppName }}. All rights reserved.</p> <!-- Mengambil AppName dari settings.json -->
     </footer>
     <script src="/static/script.js"></script>
 </body>
