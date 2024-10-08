@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Website</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <!-- Header -->
-    <header>
-        <h1>Our Website</h1>
+    <header id="header">
+        <h1 class="logo">Our Website</h1>
         <nav>
             <a href="#">Home</a>
             <a href="#about">About</a>
             <a href="#team">Our Team</a>
+            <a href="#services">Services</a>
+            <a href="#testimonies">Testimonies</a>
             <a href="#faq">FAQ</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero section">
         <div>
             <h2>Welcome to Our Website</h2>
             <p>Explore our services and get to know our amazing team.</p>
@@ -29,13 +34,55 @@
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section class="about section" id="about">
         <h2>About Us</h2>
-        <p>We are a dynamic team of professionals dedicated to providing top-notch services. Our goal is to help our clients achieve their business objectives by offering expert advice, innovative solutions, and exceptional customer service.</p>
+        <p>We are a dynamic team of professionals dedicated to providing top-notch services...</p>
+    </section>
+
+    <!-- Service Section -->
+    <section class="service section" id="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Web Development</h3>
+                <p>We build modern web applications tailored to your business needs.</p>
+            </div>
+            <div class="service-item">
+                <h3>Mobile Apps</h3>
+                <p>Developing cross-platform mobile apps to reach your customers anywhere.</p>
+            </div>
+            <div class="service-item">
+                <h3>Consulting</h3>
+                <p>We provide expert consulting services to optimize your business strategy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Counts Section -->
+    <section class="counts" id="counts">
+        <div class="counts-background"></div>
+        <div class="counts-content">
+            <div class="count-item">
+                <span id="clients-count" class="count-num">0</span>
+                <p>Clients</p>
+            </div>
+            <div class="count-item">
+                <span id="projects-count" class="count-num">0</span>
+                <p>Projects</p>
+            </div>
+            <div class="count-item">
+                <span id="employees-count" class="count-num">0</span>
+                <p>Employees</p>
+            </div>
+            <div class="count-item">
+                <span id="products-count" class="count-num">0</span>
+                <p>Products</p>
+            </div>
+        </div>
     </section>
 
     <!-- Our Team Section -->
-    <section class="team" id="team">
+    <section class="team section" id="team">
         <h2>Meet Our Team</h2>
         <div class="team-grid">
             <div class="team-member">
@@ -56,8 +103,27 @@
         </div>
     </section>
 
+    <!-- Testimonies Section -->
+    <section class="testimonies section" id="testimonies">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonies-grid">
+            <div class="testimony">
+                <p>"This team is amazing! They truly care about their clients and go above and beyond."</p>
+                <h4>- Sarah Lee</h4>
+            </div>
+            <div class="testimony">
+                <p>"Incredible service, highly recommended for anyone looking for expert solutions."</p>
+                <h4>- David Johnson</h4>
+            </div>
+            <div class="testimony">
+                <p>"Professional, efficient, and always there when you need them!"</p>
+                <h4>- Emily Clark</h4>
+            </div>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
-    <section class="faq-section" id="faq">
+    <section class="faq-section section" id="faq">
         <h2>Frequently Asked Questions</h2>
         <div class="faq">
             {{ range . }}
@@ -71,10 +137,49 @@
         </div>
     </section>
 
+    <!-- Contact Us -->
+    <section class="contact" id="contact">
+        <h2>Get In Touch with Us</h2>
+
+        <div class="contact-container">
+            <!-- Left Column: Contact Details -->
+            <div class="contact-details">
+                <h2>Contact</h2>
+                <ul>
+                    <li>Email: info@ourwebsite.com</li>
+                    <li>Phone: +123 456 789</li>
+                    <li>Address: 123 Business St, City, Country</li>
+                </ul>
+            </div>
+
+            <!-- Center Column: Pages Links -->
+            <div class="contact-links">
+                <h2>Pages</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#testimonies">Testimonies</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Right Column: Contact Form -->
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2024 Our Website. All rights reserved.</p>
     </footer>
-
+    <script src="/static/script.js"></script>
 </body>
+
 </html>

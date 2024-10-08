@@ -79,6 +79,25 @@ func addFAQHandler(w http.ResponseWriter, r *http.Request) {
     http.Redirect(w, r, "/faq", http.StatusSeeOther)
 }
 
+// Edit an existing FAQ
+func editFAQHandler(w http.ResponseWriter, r *http.Request) {
+    if r.Method == "POST" {
+        id, _ := strconv.Atoi(r.FormValue("id"))
+        question := r.FormValue("question")
+        answer := r.FormValue("answer")
+
+        // Find and update the FAQ
+        for i, faq := range faqs {
+            if faq.ID == id {
+                faqs[i].Question = question
+                faqs[i].Answer = answer
+                saveFAQs()
+                break
+            }
+        }
+    }
+    http.Redirect(w, r, "/faq", http.StatusSeeOther)
+}
 
 // Delete FAQ by ID
 func deleteFAQHandler(w http.ResponseWriter, r *http.Request) {
@@ -106,6 +125,7 @@ func main() {
     http.HandleFunc("/", indexHandler)
     http.HandleFunc("/faq", faqHandler)
     http.HandleFunc("/faq/add", addFAQHandler)
+    http.HandleFunc("/faq/edit", editFAQHandler)
     http.HandleFunc("/faq/delete", deleteFAQHandler)
 
     // Serve static files such as CSS from the "static" folder

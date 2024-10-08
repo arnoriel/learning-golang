@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "question": "Apa itu Go?",
+    "question": "Apa itu Golang?",
     "answer": "Go adalah bahasa pemrograman yang dikembangkan oleh Google."
   },
   {
     "id": 2,
-    "question": "Apa kegunaan Go?",
+    "question": "Apa kegunaan Golang?",
     "answer": "Go berguna untuk membangun aplikasi server, API, dan cloud."
   },
   {
     "id": 3,
-    "question": "bagaimana cara aksesnya?",
-    "answer": "ketik saja localhost:8080 anjay"
+    "question": "Bagaimana cara akses Website ini",
+    "answer": "hanya bisa di akses di Localhost 8080"
   }
 ]

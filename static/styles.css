@@ -3,46 +3,116 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
     line-height: 1.6;
     background-color: #f4f4f4;
+    color: #333;
 }
 
+/* Header default */
 header {
-    background-color: #333;
+    background-color: #222;
     color: #fff;
     padding: 20px 0;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.4s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40px; /* Atur posisi untuk logo */
+    padding-right: 40px; /* Atur posisi untuk navigasi */
+}
+
+/* Shrink header dan align text ke kiri */
+header.shrink {
+    background-color: #fff;
+    padding: 10px 40px; /* Sesuaikan padding saat di-scroll */
+    color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+}
+
+/* List a href (menu navigasi) */
+header nav {
+    display: flex;
+    gap: 20px; /* Jarak antar item navigasi */
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0 15px;
+    transition: color 0.4s ease-in-out;
+}
+
+/* Saat di-scroll, warna link berubah jadi hitam dan hover jadi putih agak gelap */
+header.shrink nav a {
+    color: #333;
+}
+
+header.shrink nav a:hover {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Logo "Our Website" */
+header .logo {
+    font-size: 2em;
+    transition: font-size 0.4s ease-in-out, text-align 0.4s ease-in-out;
+}
+
+/* Saat di-scroll, font mengecil dan align ke kiri */
+header.shrink .logo {
+    font-size: 1.5em;
+    color: #333;
+    text-align: left;
+}
+
+/* Sesuaikan posisi logo dan navigasi dalam header */
+header .logo, header nav {
+    display: inline-block;
+    vertical-align: middle; /* Agar logo dan navigasi sejajar */
+}
+
+/* Tambahkan sedikit margin bawah pada logo agar tidak terlalu tinggi */
+header.shrink .logo {
+    margin-bottom: 0; /* Sesuaikan jika perlu */
 }
 
 header h1 {
     margin: 0;
     font-size: 2.5em;
+    font-weight: 600;
+    transition: all 0.3s ease;
 }
 
 nav {
     margin: 10px 0;
+    transition: color 0.3s ease;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 1.1em;
-    display: inline-block;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
 }
 
 nav a:hover {
-    background-color: #555;
-    transition: 0.3s;
+    background-color: #444;
 }
 
 /* Hero Section */
 .hero {
-    background: url('/static/images/bg.jpg') no-repeat center center/cover;
+    background: url('/static/images/background.jpg') no-repeat center center/cover;
     height: 600px;
     display: flex;
     justify-content: center;
@@ -54,36 +124,42 @@ nav a:hover {
 .hero h2 {
     font-size: 3.5em;
     margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .hero p {
-    font-size: 1.5em;
+    font-size: 1.2em;
     margin-bottom: 30px;
 }
 
 .hero .btn {
-    padding: 10px 30px;
-    background-color: #007BFF;
+    padding: 12px 40px;
+    background-color: transparent;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.1em;
     text-decoration: none;
+    border: 2px solid white;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .hero .btn:hover {
-    background-color: #0056b3;
+    background-color: #fff;
+    color: black;
 }
 
 /* About Section */
 .about {
-    padding: 50px 20px;
+    padding: 60px 20px;
     text-align: center;
     background-color: #fff;
+    margin-top: 100px; /* Moves the section closer to the hero image */
 }
 
 .about h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    font-weight: 600;
     color: #333;
 }
 
@@ -96,8 +172,8 @@ nav a:hover {
 
 /* Our Team Section */
 .team {
-    padding: 50px 20px;
-    background-color: #e9e9e9;
+    padding: 60px 20px;
+    background-color: #f9f9f9;
 }
 
 .team h2 {
@@ -105,6 +181,7 @@ nav a:hover {
     margin-bottom: 40px;
     font-size: 2.5em;
     color: #333;
+    font-weight: 600;
 }
 
 .team-grid {
@@ -133,6 +210,7 @@ nav a:hover {
 .team-member h3 {
     margin-bottom: 10px;
     color: #333;
+    font-weight: 600;
 }
 
 .team-member p {
@@ -140,9 +218,127 @@ nav a:hover {
     color: #777;
 }
 
+/* Service Section */
+.service {
+    padding: 60px 20px;
+    background-color: #fff;
+}
+
+.service h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: #333;
+}
+
+.services-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+    text-align: center;
+}
+
+.service-item h3 {
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    color: #333;
+}
+
+/* Counts Section */
+.counts {
+    position: relative;
+    padding: 100px 20px;
+    text-align: center;
+    background-color: transparent;
+}
+
+.counts-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('/static/images/counter.jpg') no-repeat center center/cover;
+    z-index: -1;
+    opacity: 0.1;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed; /* Sticky effect */
+}
+
+.counts-content {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.count-item {
+    color: #333;
+    font-size: 2em;
+}
+
+.count-num {
+    font-size: 3em;
+    font-weight: 600;
+}
+
+/* Sticky Background for Counts */
+.counts-background {
+    background-attachment: fixed; /* Makes background sticky */
+    opacity: 0.2; /* Slight transparency */
+}
+
+/* Testimonies Section */
+.testimonies {
+    padding: 60px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.testimonies h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    color: #333;
+    font-weight: 600;
+}
+
+.testimonies-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.testimony {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 300px;
+}
+
+.testimony p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.testimony h4 {
+    margin-top: 15px;
+    font-size: 1.1em;
+    color: #333;
+}
+
 /* FAQ Section */
 .faq-section {
-    padding: 40px 20px;
+    padding: 60px 20px;
     background-color: #f4f4f4;
 }
 
@@ -168,16 +364,158 @@ nav a:hover {
 
 .faq-item p {
     margin-top: 10px;
+    font-size: 1em;
+    color: #777;
+}
+
+/* Contact Us Section */
+.contact {
+    padding: 60px 20px;
+    background-color: #222;
+    margin-top: 70px;
+    color: #fff;
+}
+
+.contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Container for the three columns */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+/* Contact Details (Left) */
+.contact-details {
+    max-width: 30%;
+    text-align: left;
+}
+
+.contact-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-details li {
     font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+/* Pages Links (Center) */
+.contact-links {
+    max-width: 20%;
+    text-align: center;
+}
+
+.contact-links ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.contact-links li {
+    margin-bottom: 10px;
+}
+
+.contact-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+}
+
+/* Contact Form (Right) */
+.contact-form {
+    max-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    width: 100%;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #fff;
+}
+
+.contact-form button {
+    padding: 12px 20px;
+    background-color: #007BFF;
+    color: white;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
 }
 
 /* Footer */
 footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #333;
+    background-color: #222;
     color: #fff;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Animasi Pop-Up untuk section lainnya */
+@keyframes popUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Fade-In Animasi khusus untuk Hero Section */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Hero Section fade-in animation */
+.hero-fade {
+    animation: fadeIn 1.2s ease-out forwards;
+}
+
+/* Other sections pop-up animation */
+.animate-pop {
+    animation: popUp 0.8s ease-out forwards;
+}
+
+/* Initial state before animation */
+.section {
+    opacity: 0;
+    transform: translateY(50px); /* This will be ignored by fade-in */
+    transition: all 0.8s ease-out;
 }
