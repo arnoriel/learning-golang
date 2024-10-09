@@ -1,8 +1,8 @@
 [
   {
     "id": 1,
-    "question": "Apa itu Golang?",
-    "answer": "Go adalah bahasa pemrograman yang dikembangkan oleh Google."
+    "question": "Apa benefit yang akan didapatkan setelah mengikuti Program Web Development Training",
+    "answer": "Benefit yang didapatkan itu banyak, ada yang akan di Hire di perusahaan kami, atau akan ada yang akan di Hire di perusahaan Lainnya, banyak sekali benefit yang bisa didapatkan dari program training yang anda pilih"
   },
   {
     "id": 2,
@@ -13,10 +13,5 @@
     "id": 3,
     "question": "Bagaimana cara akses Website ini",
     "answer": "hanya bisa di akses di Localhost 8080"
-  },
-  {
-    "id": 4,
-    "question": "Golang si Golang",
-    "answer": "si gocah petualang"
   }
 ]

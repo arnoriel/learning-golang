@@ -355,6 +355,7 @@ nav a:hover {
     margin: 10px 0;
     padding: 20px;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 .faq-item strong {
@@ -368,11 +369,27 @@ nav a:hover {
     color: #777;
 }
 
+.faq-question {
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.faq-answer p {
+    margin: 0;
+}
+
 /* Contact Us Section */
 .contact {
     padding: 60px 20px;
     background-color: #222;
-    margin-top: 70px;
     color: #fff;
 }
 
@@ -518,4 +535,15 @@ footer p {
     opacity: 0;
     transform: translateY(50px); /* This will be ignored by fade-in */
     transition: all 0.8s ease-out;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    z-index: 1000;
 }

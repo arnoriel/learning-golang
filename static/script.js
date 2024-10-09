@@ -67,3 +67,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     countsObserver.observe(countsSection);
 });
+
+function toggleAnswer(event) {
+    const question = event.target.closest('.faq-question'); // Dapatkan elemen pertanyaan
+    const answer = question.nextElementSibling;
+    const arrowIcon = question.querySelector('.faq-arrow i'); // Ambil ikon panah di dalam pertanyaan
+
+    if (answer.style.display === "none" || answer.style.display === "") {
+        answer.style.display = "block";  // Tampilkan jawaban
+        arrowIcon.classList.remove('fa-chevron-down'); // Ganti panah ke atas
+        arrowIcon.classList.add('fa-chevron-up');
+    } else {
+        answer.style.display = "none";   // Sembunyikan jawaban
+        arrowIcon.classList.remove('fa-chevron-up'); // Ganti panah ke bawah
+        arrowIcon.classList.add('fa-chevron-down');
+    }
+}
